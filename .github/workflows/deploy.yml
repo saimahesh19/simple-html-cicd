@@ -23,6 +23,11 @@ jobs:
           test -f index.html
           echo "index.html exists"
 
+      - name: Test page content
+        run: |
+          grep -q "My First CI/CD Project" index.html
+          echo "Page content test passed"      
+
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v3
         with:
