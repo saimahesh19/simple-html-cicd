@@ -1,0 +1,19 @@
+name: HTML CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate HTML file
+        run: |
+          test -f index.html
+          echo "index.html exists"
